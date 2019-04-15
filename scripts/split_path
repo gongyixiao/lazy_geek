@@ -1,0 +1,21 @@
+#!/bin/bash
+
+
+if [ "$#" -eq 0 ]; then
+        printf "\n\n###### Usage\n\n"
+        printf "$0 [INPUT BIGWIG FILEs] \n\n"
+        exit
+fi
+FILE_LIST=($@)
+
+for file in ${FILE_LIST[@]}
+do
+        mypath=`dirname $file`
+        myfile=`basename $file`
+        mypref=${myfile%.*}
+        myfirst=${myfile%%.*}
+        myexceptfirst=${myfile#*.}
+        mysuffix=${myfile##*.}
+        printf "orignal\tpath\tbase\tprefix\tfirstpart\texceptfirst\tsuffix\t\n"
+        printf  "$file\t$mypath\t$myfile\t$mypref\t$myfirst\t\t$myexceptfirst\t$mysuffix\n"
+done

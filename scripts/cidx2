@@ -1,0 +1,11 @@
+#!/bin/bash
+
+if [ -z $2 ]
+then 
+	line=-2
+else
+	line=`echo -$1`
+	shift
+fi
+
+join -t $'\t' -a1 <(cat $1 | grep -v "^#"| head -1 | tr '\t' '\n' | cat -n | sed 's/^ *//;s/ *$//;s/\t$//;s/,*$//' | sort -t $'\t' -k1,1) <(cat $1 | grep -v "^#"| head $line | tail -1 | tr '\t' '\n' | cat -n | sed 's/^ *//;s/ *$//;s/\t$//;s/,*$//' | sort -t $'\t' -k1,1) | sort -t $'\t' -k1n,1n | column -t -s $'\t'

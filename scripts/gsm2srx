@@ -1,0 +1,5 @@
+#!/bin/bash
+
+srx=`wget -q -O - https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=$1 | grep SRX | sed 's/term\=/\t/g' | cut -f2 | sed 's/\">/\t/g' | cut -f1`
+
+echo -e $1"\t"$srx

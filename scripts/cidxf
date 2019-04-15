@@ -1,0 +1,10 @@
+#!/bin/bash
+
+rg=$1
+
+if [ $(cat $2 | grep -v "^#"| grep -P "$rg" | wc -l) -eq 0 ]
+then
+	exit 0
+else
+join -t $'\t' <(cat $2 | grep -v "^#"| head -1 | tr '\t' '\n' | cat -n | sed 's/^ *//;s/ *$//;s/\t$//;s/,*$//') <(cat $2 | grep -v "^#"| grep -P "$rg" | datamash transpose | cat -n | sed 's/^ *//;s/ *$//;s/\t$//;s/,*$//')
+fi

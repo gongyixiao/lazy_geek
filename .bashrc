@@ -156,7 +156,6 @@ export PATH=/opt/common/CentOS_6/gcc/gcc-4.9.3/bin:/opt/common/CentOS_6-dev/R/pa
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/common/CentOS_6/gcc/gcc-4.9.3/lib64:/opt/common/CentOS_6-dev/R/packages4R/lib
 export CFLAGS="-I/opt/common/CentOS_6-dev/R/packages4R/include"
 export LDFLAGS="-L/opt/common/CentOS_6-dev/R/packages4R/lib"
-export NXF_SINGULARITY_CACHEDIR="/juno/work/taylorlab/cmopipeline/sandbox/singularity_images"
 
 export PERL5LIB=$PERL5LIB:$HOME/perl5/lib/perl5/
 
